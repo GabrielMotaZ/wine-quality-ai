@@ -1,6 +1,9 @@
 import tensorflow as tf
 import pandas as pd
-# wine quality
+# wine quality ai 
+# linear regression
+# https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/
+# code from https://colab.research.google.com/drive/15Cyy2H7nT40sGR7TBN5wBvgTd57mVKay#forceEdit=true&sandboxMode=true&scrollTo=sQ9iJrSbBTZB
 
 dftrain = pd.read_csv('.\\train.csv', delimiter=';') # training data
 dfeval = pd.read_csv('.\\eval.csv', delimiter=';') # testing data
@@ -41,5 +44,5 @@ linear_est = tf.estimator.LinearClassifier(feature_columns=feature_columns, n_cl
 linear_est.train(train_input_fn)  # train
 result = linear_est.evaluate(eval_input_fn)  # get model metrics/stats by testing on testing data
 
-print(result['accuracy'])  # the result variable is simply a dict of stats about our model
+print(result)  # the result variable is simply a dict of stats about our model
 
